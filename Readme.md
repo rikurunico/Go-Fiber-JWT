@@ -21,16 +21,27 @@ This project is a Go-based API built using the Fiber framework with JWT authenti
 - Request Body:
   ```json
   {
-    "username": "your_username",
-    "email": "your_email@example.com",
-    "password": "your_password"
+    "email": "admin@admin.com",
+    "name": "Admin",
+    "password": "password123",
+    "passwordConfirm": "password123"
   }
   ```
 - Response:
   ```json
   {
-    "status": "success",
-    "message": "User registered successfully"
+    "data": {
+        "user": {
+        "id": "<user_id>",
+        "name": "Admin",
+        "email": "admin@admin.com",
+        "role": "user",
+        "provider": "local",
+        "created_at": "2023-08-11T13:12:30.5741+07:00",
+        "updated_at": "2023-08-11T13:12:30.5741+07:00"
+        }
+    },
+    "status": "success"
   }
   ```
 
@@ -40,18 +51,15 @@ This project is a Go-based API built using the Fiber framework with JWT authenti
 - Request Body:
   ```json
   {
-    "email": "your_email@example.com",
-    "password": "your_password"
+    "email": "admin@admin.com",
+    "password": "password123"
   }
   ```
 - Response:
   ```json
   {
     "status": "success",
-    "message": "Login successful",
-    "data": {
-      "token": "<jwt_token>"
-    }
+    "token": "<jwt_token>"
   }
   ```
 
@@ -62,8 +70,7 @@ This project is a Go-based API built using the Fiber framework with JWT authenti
 - Response:
   ```json
   {
-    "status": "success",
-    "message": "Logout successful"
+    "status": "success"
   }
   ```
 
@@ -74,14 +81,18 @@ This project is a Go-based API built using the Fiber framework with JWT authenti
 - Response:
   ```json
   {
-    "status": "success",
     "data": {
-      "user": {
-        "id": 1,
-        "username": "your_username",
-        "email": "your_email@example.com"
-      }
-    }
+        "user": {
+        "id": "<user_id>",
+        "name": "Admin",
+        "email": "admin@admin.com",
+        "role": "user",
+        "provider": "local",
+        "created_at": "2023-08-11T13:12:30.5741+07:00",
+        "updated_at": "2023-08-11T13:12:30.5741+07:00"
+        }
+    },
+    "status": "success"
   }
   ```
 
